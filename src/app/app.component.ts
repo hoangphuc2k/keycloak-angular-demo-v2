@@ -18,11 +18,9 @@ export class AppComponent {
 
     if (this.isLoggedIn) {
       this.userProfile = await this.keycloak.loadUserProfile();
+    } else {
+      this.keycloak.login();
     }
-  }
-
-  public login() {
-    this.keycloak.login();
   }
 
   public logout() {
